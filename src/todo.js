@@ -15,4 +15,8 @@ export default class ToDo {
     getPriority(){
         return this.priority;
     }
+
+    getDate(){
+        return this.dueDate;
+    }
 }
