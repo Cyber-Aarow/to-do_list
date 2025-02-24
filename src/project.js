@@ -27,7 +27,7 @@ export default function Project(){
     };
 
     const getList = () =>{
-        return list;
+        return list.map(ToDo => ToDo.getTitle());
     };
 
     return{
