@@ -1,5 +1,6 @@
 import ToDo from './todo.js';
 import Project from './project.js';
+import './main.css';
 
 let project1 = Project();
 

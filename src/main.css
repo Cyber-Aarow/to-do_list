@@ -7,6 +7,30 @@
     border: none;
 }
 
+header {
+    background-color: rgb(206, 206, 206);
+    color: white;
+    display: flex;
+    gap: 20px;
+    width: 100%;
+    padding: 10px;
+}
+
+header button {
+    color: white;
+    border: 1px solid white;
+    border-radius: 10px;
+    background-color: lightslategray;
+    padding: 18px;
+    font-size: xx-large;
+    font-weight: bold;
+}
+
+.header-plus {
+    font-size: 50px;
+    font-weight: bolder;
+    padding: 8px 24px 8px 24px;
+}
 
 ul{
     list-style-type: none;
