@@ -15,19 +15,19 @@ export default function Project(){
     const sortByPriority = () =>{
         let urgent_list = [], moderate_list = [], unrushed_list = [];
         let new_list = [];
-        for(toDo of list){
+        for(const toDo of list){
             if(toDo.getPriority() === 'urgent') urgent_list.push(toDo);
             else if(toDo.getPriority() === 'moderate') moderate_list.push(toDo);
             else if(toDo.getPriority() === 'unrushed') unrushed_list.push(toDo);
         }
-        for(toDo of urgent_list) new_list.push(toDo);
-        for(toDo of moderate_list) new_list.push(toDo);
-        for(toDo of unrushed_list) new_list.push(toDo);
+        for(const toDo of urgent_list) new_list.push(toDo);
+        for(const toDo of moderate_list) new_list.push(toDo);
+        for(const toDo of unrushed_list) new_list.push(toDo);
         list = [...new_list];
     };
 
     const getList = () =>{
-        return list.map(ToDo => ToDo.getTitle());
+        return list.map(toDo => toDo.getTitle());
     };
 
     return{

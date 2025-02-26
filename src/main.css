@@ -6,3 +6,29 @@
     list-style-type: none;
     border: none;
 }
+
+
+ul{
+    list-style-type: none;
+    display: flex;
+    flex-direction: column;
+    gap: 5vh;
+}
+
+.todo {
+    border: 3px solid black;
+    width: 60vh;
+    height: 10vh;
+}
+
+.urgent {
+    background-color: lightcoral;
+}
+
+.moderate {
+    background-color: lightyellow;
+}
+
+.unrushed {
+    background-color: lightgreen;
+}
