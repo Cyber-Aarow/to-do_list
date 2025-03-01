@@ -43,7 +43,14 @@ ul{
     border: 3px solid black;
     width: 60vh;
     height: 10vh;
+    display: flex;
 }
+
+.left-container {
+    display: flex;
+    flex-direction: column;
+}
+
 
 .urgent {
     background-color: lightcoral;

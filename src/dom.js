@@ -1,3 +1,46 @@
-export default function DOM(){
+export default function DOM(list){
+    let ul = document.createElement('ul');
+    
+    const makeList = () =>{
+        for(toDo in list){
+            let li = document.createElement('li');
+            let date = document.createElement('div');
+            let title = document.createElement('h1');
+            let desc = document.createElement('p');
+            let leftContainer = document.createElement('div');
+
+            li.classList.add('todo');
+            date.classList.add('date');
+            title.classList.add('title');
+            desc.classList.add('desc');
+            leftContainer.add('left-container');
+            
+            date.innerHTML = toDo.getDate();
+            title.innerHTML = toDo.getTitle();
+            desc.innerHTML = toDo.getDescription();
+            
+            leftContainer.appendChild(title);
+            leftContainer.appendChild(desc);
+            
+            li.appendChild(leftContainer);
+            li.appendChild(date);
+
+            setPriority(toDo, li);
+            
+            ul.appendChild(li);
+        }
+    };
+
+    const setPriority = (toDo, li) =>{
+        if(toDo.getPriority() === 'unrushed'){
+            li.classList.add('unrushed');
+        }
+        else if(toDo.getPriority() === 'moderate'){
+            li.classList.add('moderate');
+        }
+        else if(toDo.getPriority() === 'urgent'){
+            li.classList.add('urgent');
+        }
+    };
     
 }
