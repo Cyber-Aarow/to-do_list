@@ -47,8 +47,21 @@ ul{
 }
 
 .left-container {
+    flex-grow: 5;
     display: flex;
     flex-direction: column;
+}
+
+.date {
+    flex-grow: 1;
+}
+
+.title {
+    flex-grow: 2;
+}
+
+.desc {
+    flex-grow: 1;
 }
 
 

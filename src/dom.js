@@ -1,8 +1,10 @@
-export default function DOM(list){
+export default function DOM(project){
     let ul = document.createElement('ul');
+    let holder = document.querySelector('#holder');
     
     const makeList = () =>{
-        for(toDo in list){
+        for(const toDo of project.getList()){
+            console.log(toDo);
             let li = document.createElement('li');
             let date = document.createElement('div');
             let title = document.createElement('h1');
@@ -13,8 +15,8 @@ export default function DOM(list){
             date.classList.add('date');
             title.classList.add('title');
             desc.classList.add('desc');
-            leftContainer.add('left-container');
-            
+            leftContainer.classList.add('left-container');
+
             date.innerHTML = toDo.getDate();
             title.innerHTML = toDo.getTitle();
             desc.innerHTML = toDo.getDescription();
@@ -28,6 +30,7 @@ export default function DOM(list){
             setPriority(toDo, li);
             
             ul.appendChild(li);
+            holder.appendChild(ul);
         }
     };
 
@@ -43,4 +46,7 @@ export default function DOM(list){
         }
     };
     
+    return{
+        makeList
+    };
 }

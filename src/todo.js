@@ -7,7 +7,7 @@ export default class ToDo {
     constructor(title, description, dueDate, priority){
         this.#title = title;
         this.#description = description;
-        this.#dueDate = dueDate;
+        this.#dueDate = dueDate.toLocaleDateString('en-US', {month: '2-digit', day: '2-digit'});
         this.#priority = priority;
     }
 
@@ -32,8 +32,4 @@ export default class ToDo {
     getPriority(){
         return this.#priority;
     }
-
-    
-
-
 }

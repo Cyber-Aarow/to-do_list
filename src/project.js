@@ -26,14 +26,19 @@ export default function Project(){
         list = [...new_list];
     };
 
-    const getList = () =>{
+    const getTitles = () =>{
         return list.map(toDo => toDo.getTitle());
+    };
+
+    const getList = () =>{
+        return list;
     };
 
     return{
         addToDo,
         sortByDate,
         sortByPriority,
+        getTitles,
         getList
     };
 }
