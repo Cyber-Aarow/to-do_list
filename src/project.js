@@ -1,6 +1,7 @@
 export default function Project(){
     let list = [];
     let title = "";
+    let order = "priority";
 
     const addToDo = (newToDo) =>{
         let index = list.findIndex(toDo => toDo.getDate() > newToDo.getDate());
@@ -10,6 +11,7 @@ export default function Project(){
 
     const sortByDate = () =>{
         list.sort((a, b) => b.getDate() - a.getDate());
+        order = 'date';
     };
 
     const sortByPriority = () =>{
@@ -24,6 +26,7 @@ export default function Project(){
         for(const toDo of moderate_list) new_list.push(toDo);
         for(const toDo of unrushed_list) new_list.push(toDo);
         list = [...new_list];
+        order = 'priority';
     };
 
     const getTitles = () =>{
@@ -34,11 +37,16 @@ export default function Project(){
         return list;
     };
 
+    const getOrder = () =>{
+        return order;
+    };
+
     return{
         addToDo,
         sortByDate,
         sortByPriority,
         getTitles,
-        getList
+        getList,
+        getOrder
     };
 }

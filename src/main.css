@@ -37,9 +37,28 @@ header button {
 }
 
 #holder {
-    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+}
+
+#left-holder{
     display: flex;
     justify-content: center;
+}
+
+.order-button{
+    width: 30px;
+    color: white;
+    border: 1px solid white;
+    border-radius: 10px;
+    background-color: lightslategray;
+    padding: 18px;
+}
+
+#right-holder {
+    width: 100%;
+    display: flex;
+    justify-content: left;
     padding-top: 15vh;
 }
 
@@ -47,13 +66,15 @@ ul{
     list-style-type: none;
     display: flex;
     flex-direction: column;
-    gap: 5vh;
+    gap: 2vh;
+    width: 90%;
+    margin-left: 30px;
 }
 
 .todo {
     border: 3px solid;
     border-radius: 15px;
-    width: 60vh;
+    width: 60%;
     height: 11vh;
     display: flex;
     cursor: default;

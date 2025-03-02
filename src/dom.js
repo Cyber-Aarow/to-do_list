@@ -1,7 +1,8 @@
 export default function DOM(project){
     let ul = document.createElement('ul');
-    let holder = document.querySelector('#holder');
-    
+    let rightHolder = document.querySelector('#right-holder');
+    let leftHolder = document.querySelector('#left-holder');
+
     const makeList = () =>{
         for(const toDo of project.getList()){
             console.log(toDo);
@@ -30,7 +31,7 @@ export default function DOM(project){
             setPriority(toDo, li);
             
             ul.appendChild(li);
-            holder.appendChild(ul);
+            rightHolder.appendChild(ul);
         }
     };
 
@@ -45,8 +46,32 @@ export default function DOM(project){
             li.classList.add('urgent');
         }
     };
+
+    const clearList = () =>{
+        rightHolder.replaceChildren();
+    };
     
+    const setOrderButton = (order) =>{
+        let orderButton = document.createElement('button');
+        orderButton.addEventListener('click', () => {
+            if(order === 'priority'){
+                project.sortByDate();
+            }
+            else if(order === 'date'){
+                project.sortByPriority();
+            }
+            clearList();
+            makeList();
+        });
+
+        orderButton.classList.add('order-button');
+        leftHolder.appendChild(orderButton);
+    };
+
+    setOrderButton(project.getOrder());
+
     return{
-        makeList
+        makeList,
+        clearList
     };
 }

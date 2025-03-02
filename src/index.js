@@ -15,3 +15,6 @@ console.log(project1.sortByPriority());
 console.log(project1.getTitles());
 
 DOM(project1).makeList();
+
+window.DOM = DOM;
+window.project1 = project1;
