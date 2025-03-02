@@ -3,12 +3,14 @@ export default class ToDo {
     #description;
     #dueDate;
     #priority;
-    
-    constructor(title, description, dueDate, priority){
+    #finished;
+
+    constructor(title, description, dueDate, priority, finished=false){
         this.#title = title;
         this.#description = description;
         this.#dueDate = dueDate.toLocaleDateString('en-US', {month: '2-digit', day: '2-digit'});
         this.#priority = priority;
+        this.#finished = finished;
     }
 
     changePriority(newPriority){
@@ -31,5 +33,14 @@ export default class ToDo {
     
     getPriority(){
         return this.#priority;
+    }
+
+    getFinished(){
+        return this.#finished;
+    }
+
+    toggleFinished(){
+        if(this.#finished) this.#finished = false;
+        else this.#finished = true;
     }
 }

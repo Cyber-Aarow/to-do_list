@@ -7,6 +7,10 @@
     border: none;
 }
 
+.dark-mode {
+    --bg-color: rgb(53, 53, 53);
+}
+
 header {
     background-color: rgb(206, 206, 206);
     color: white;
@@ -32,6 +36,13 @@ header button {
     padding: 8px 24px 8px 24px;
 }
 
+#holder {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    padding-top: 15vh;
+}
+
 ul{
     list-style-type: none;
     display: flex;
@@ -40,39 +51,83 @@ ul{
 }
 
 .todo {
-    border: 3px solid black;
+    border: 3px solid;
+    border-radius: 15px;
     width: 60vh;
-    height: 10vh;
+    height: 11vh;
     display: flex;
+    cursor: default;
+}
+
+.todo:hover {
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3);
+    transform: translateY(-10px);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .left-container {
     flex-grow: 5;
     display: flex;
     flex-direction: column;
+    padding-top: 1vh;
 }
 
 .date {
     flex-grow: 1;
+    text-align: center;
+    font-size: 49px;
+    margin: auto;
+    min-width: 125px;
+    max-width: 125px;
 }
 
 .title {
-    flex-grow: 2;
+    flex-grow: 1;
+    padding-left: 2vh;
 }
 
 .desc {
-    flex-grow: 1;
+    flex-grow: 2;
+    padding-left: 2vh;
 }
 
 
 .urgent {
     background-color: lightcoral;
+    border-color: red;
+}
+
+.urgent > .left-container {
+    border-right: 3px solid red;
+}
+
+.urgent > .left-container > .title {
+    border-bottom: 3px solid red;
 }
 
 .moderate {
     background-color: lightyellow;
+    border-color: rgb(226, 202, 65);
 }
+
+.moderate > .left-container {
+    border-right: 3px solid rgb(226, 202, 65);
+}
+
+.moderate > .left-container > .title {
+    border-bottom: 3px solid rgb(226, 202, 65);
+}
+
 
 .unrushed {
     background-color: lightgreen;
+    border-color: green;
+}
+
+.unrushed > .left-container {
+    border-right: 3px solid green;
+}
+
+.unrushed > .left-container > .title {
+    border-bottom: 3px solid green;
 }
