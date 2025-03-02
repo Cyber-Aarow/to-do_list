@@ -1,5 +1,5 @@
 export default function DOM(project){
-    let ul = document.createElement('ul');
+    let ul = document.querySelector('ul');
     let rightHolder = document.querySelector('#right-holder');
     let leftHolder = document.querySelector('#left-holder');
 
@@ -48,11 +48,13 @@ export default function DOM(project){
     };
 
     const clearList = () =>{
-        rightHolder.replaceChildren();
+        console.log("Before clearing: ", rightHolder.childNodes);
+        ul.replaceChildren();
+        console.log("After clearing: ", rightHolder.childNodes);
     };
     
     const setOrderButton = (order) =>{
-        let orderButton = document.createElement('button');
+        let orderButton = document.querySelector('.order-button');
         orderButton.addEventListener('click', () => {
             if(order === 'priority'){
                 project.sortByDate();
@@ -61,17 +63,14 @@ export default function DOM(project){
                 project.sortByPriority();
             }
             clearList();
-            makeList();
+            setTimeout(makeList, 0);
         });
-
-        orderButton.classList.add('order-button');
-        leftHolder.appendChild(orderButton);
     };
 
-    setOrderButton(project.getOrder());
 
     return{
         makeList,
-        clearList
+        clearList,
+        setOrderButton
     };
 }

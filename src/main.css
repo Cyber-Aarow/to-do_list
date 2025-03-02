@@ -44,10 +44,12 @@ header button {
 #left-holder{
     display: flex;
     justify-content: center;
+    margin-top: 10vh;
 }
 
 .order-button{
-    width: 30px;
+    width: 40vh;
+    height: 20vh;
     color: white;
     border: 1px solid white;
     border-radius: 10px;

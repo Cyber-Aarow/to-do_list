@@ -15,6 +15,7 @@ console.log(project1.sortByPriority());
 console.log(project1.getTitles());
 
 DOM(project1).makeList();
+DOM(project1).setOrderButton(project1.getOrder());
 
 window.DOM = DOM;
 window.project1 = project1;
