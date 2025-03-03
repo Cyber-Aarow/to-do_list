@@ -11,7 +11,7 @@ project1.addToDo(new ToDo('Text Darren', 'Try to network with a web dev. This is
 
 
 DOM(project1).makeList();
-DOM(project1).setOrderButton(project1.getOrder());
+DOM(project1).setOrderButton();
 
 window.DOM = DOM;
 window.project1 = project1;

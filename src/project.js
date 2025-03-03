@@ -10,7 +10,7 @@ export default function Project(){
     };
 
     const sortByDate = () =>{
-        list.sort((a, b) => new Date(b.getDate()) - new Date(a.getDate()));
+        list.sort((a, b) => new Date(a.getDate()) - new Date(b.getDate()));
         order = 'date';
     };
 

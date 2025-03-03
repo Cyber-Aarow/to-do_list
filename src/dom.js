@@ -50,13 +50,13 @@ export default function DOM(project){
         ul.replaceChildren();
     };
     
-    const setOrderButton = (order) =>{
+    const setOrderButton = () =>{
         let orderButton = document.querySelector('.order-button');
         orderButton.addEventListener('click', () => {
-            if(order === 'priority'){
+            if(project.getOrder() === 'priority'){
                 project.sortByDate();
             }
-            else if(order === 'date'){
+            else if(project.getOrder() === 'date'){
                 project.sortByPriority();
             }
             clearList();
