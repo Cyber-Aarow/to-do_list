@@ -31,7 +31,6 @@ export default function DOM(project){
             setPriority(toDo, li);
             
             ul.appendChild(li);
-            rightHolder.appendChild(ul);
         }
     };
 
@@ -48,9 +47,7 @@ export default function DOM(project){
     };
 
     const clearList = () =>{
-        console.log("Before clearing: ", rightHolder.childNodes);
         ul.replaceChildren();
-        console.log("After clearing: ", rightHolder.childNodes);
     };
     
     const setOrderButton = (order) =>{

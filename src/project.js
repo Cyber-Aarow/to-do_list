@@ -1,7 +1,7 @@
 export default function Project(){
     let list = [];
     let title = "";
-    let order = "priority";
+    let order = "date";
 
     const addToDo = (newToDo) =>{
         let index = list.findIndex(toDo => toDo.getDate() > newToDo.getDate());
@@ -10,22 +10,19 @@ export default function Project(){
     };
 
     const sortByDate = () =>{
-        list.sort((a, b) => b.getDate() - a.getDate());
+        list.sort((a, b) => new Date(b.getDate()) - new Date(a.getDate()));
         order = 'date';
     };
 
     const sortByPriority = () =>{
         let urgent_list = [], moderate_list = [], unrushed_list = [];
-        let new_list = [];
         for(const toDo of list){
             if(toDo.getPriority() === 'urgent') urgent_list.push(toDo);
             else if(toDo.getPriority() === 'moderate') moderate_list.push(toDo);
             else if(toDo.getPriority() === 'unrushed') unrushed_list.push(toDo);
         }
-        for(const toDo of urgent_list) new_list.push(toDo);
-        for(const toDo of moderate_list) new_list.push(toDo);
-        for(const toDo of unrushed_list) new_list.push(toDo);
-        list = [...new_list];
+        list.length = 0;
+        list.push(...urgent_list, ...moderate_list, ...unrushed_list);
         order = 'priority';
     };
 
