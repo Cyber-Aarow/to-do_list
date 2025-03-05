@@ -12,13 +12,33 @@
     </header>
     <div id="holder">
         <div id="left-holder">
-                <button class="order-button">Change Order</button>
+                <button class="order-button">Order: Date</button>
+                <button class="new-to-do-button">Add Task</button>
         </div>
         <div id="right-holder">
             <ul>
 
             </ul>
         </div>
+        <form action="" id="add-task-form">
+            <div class="title-desc-holder">
+                <input type="text" id="inputTitle" placeholder="Title">
+                <textarea id="inputDesc" rows="3" placeholder="Description"></textarea>
+            </div>
+            <div class="date-priority-holder">
+                <input type="date" id="inputDate">
+                <select id="inputPriority">
+                    <option value=""disabled selected hidden>Priority</option>
+                    <option value="unrushed">Unrushed</option>
+                    <option value="moderate">Moderate</option>
+                    <option value="urgent">Urgent</option>
+                </select>
+            </div>
+            <div class="submit-holder">
+                <button id="form-submit-button">Add Task</button>
+            </div>
+
+        </form>
     </div>
 </body>
 </html>

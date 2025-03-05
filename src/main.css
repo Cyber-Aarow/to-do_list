@@ -1,3 +1,30 @@
+@font-face {
+    font-family: 'Poppins Bold';
+    src: url('./fonts/Poppins-Bold.woff2') format('woff2'),
+        url('./fonts/Poppins-Bold.woff') format('woff');
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Poppins ExtraLight';
+    src: url('./fonts/Poppins-ExtraLight.woff2') format('woff2'),
+        url('./fonts/Poppins-ExtraLight.woff') format('woff');
+    font-weight: 200;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Tall Block';
+    src: url('./fonts/Tall-Block.woff2') format('woff2'),
+        url('./fonts/Tall-Block.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
 *{
     margin: 0;
     padding: 0;
@@ -12,7 +39,7 @@
 }
 
 header {
-    background-color: rgb(206, 206, 206);
+    background-color: rgb(221, 224, 252);
     color: white;
     display: flex;
     gap: 20px;
@@ -24,7 +51,7 @@ header button {
     color: white;
     border: 1px solid white;
     border-radius: 10px;
-    background-color: lightslategray;
+    background-color: rgb(181, 149, 199);
     padding: 18px;
     font-size: xx-large;
     font-weight: bold;
@@ -43,18 +70,21 @@ header button {
 
 #left-holder{
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    gap: 10vh;
     margin-top: 10vh;
 }
 
-.order-button{
+#left-holder button{
     width: 40vh;
-    height: 20vh;
+    height: 30vh;
     color: white;
     border: 1px solid white;
     border-radius: 10px;
-    background-color: lightslategray;
+    background-color: rgb(97, 96, 173);
     padding: 18px;
+    font-size: xx-large;
 }
 
 #right-holder {
@@ -80,6 +110,8 @@ ul{
     height: 11vh;
     display: flex;
     cursor: default;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .todo:hover {
@@ -96,6 +128,7 @@ ul{
 }
 
 .date {
+    font-family: 'Tall Block';
     flex-grow: 1;
     text-align: center;
     font-size: 49px;
@@ -105,11 +138,13 @@ ul{
 }
 
 .title {
+    font-family: 'Poppins Bold';
     flex-grow: 1;
     padding-left: 2vh;
 }
 
 .desc {
+    font-family: 'Poppins ExtraLight';
     flex-grow: 2;
     padding-left: 2vh;
 }
@@ -153,4 +188,94 @@ ul{
 
 .unrushed > .left-container > .title {
     border-bottom: 3px solid green;
+}
+
+
+/*Form*/
+#add-task-form {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 9;
+    width: 55vh;
+    height: 35vh;
+    display: flex;
+    flex-direction: column;
+    border: 1px solid black;
+    border-radius: 15px;
+    background-color: white;
+    overflow: hidden;
+}
+
+.title-desc-holder {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 2vh 5vh 0 5vh;
+}
+
+input:focus, textarea:focus {
+    outline: none;
+    border: none;
+}
+
+#inputTitle {
+    font-family: 'Poppins Bold';
+    font-size: 35px;
+    font-weight: bolder;
+    width: 100%;
+    margin-bottom: 5px;
+}
+
+#inputDesc {
+    font-family: 'Poppins ExtraLight';
+    font-size: 20px;
+    width: 100%;
+    resize: none;
+    rows: 3;
+}
+
+.date-priority-holder {
+    display: flex;
+    gap: 5vh;
+    justify-content: center;
+    margin-top: auto;
+    margin-bottom: 2vh;
+}
+
+#inputDate, #inputPriority {
+    border: 1px solid gray;
+    border-radius: 5px;
+    height: 5vh;
+    width: 30%;
+    text-align: center;
+    font-size: 15px;
+}
+
+#inputDate {
+    font-family: 'Tall Block';
+    text-align: center;
+    font-size: larger;
+    padding-right: 7px;
+}
+
+#inputPriority {
+    text-align: center;
+    font-size: 20px;
+}
+
+.submit-holder {
+    width: 100%;
+    display: flex;
+    justify-content: right;
+    border-top: 1px solid black;
+}
+
+#form-submit-button {
+    background-color: rgb(37, 49, 221);
+    border: 1px solid black;
+    padding: 2vh;
+    font-size: large;
+    color: white;
 }

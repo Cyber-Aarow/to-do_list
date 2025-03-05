@@ -55,12 +55,22 @@ export default function DOM(project){
         orderButton.addEventListener('click', () => {
             if(project.getOrder() === 'priority'){
                 project.sortByDate();
+                orderButton.innerHTML = "Order: Date";
             }
             else if(project.getOrder() === 'date'){
                 project.sortByPriority();
+                orderButton.innerHTML = "Order: Priority";                
             }
             clearList();
             setTimeout(makeList, 0);
+        });
+    };
+
+    const setNewToDoButton = () =>{
+        let newToDoButton = document.querySelector('.new-to-do-button');
+        newToDoButton.addEventListener('click', () =>{
+            let newToDoForm = document.createElement('form');
+            
         });
     };
 
@@ -68,6 +78,7 @@ export default function DOM(project){
     return{
         makeList,
         clearList,
-        setOrderButton
+        setOrderButton,
+        setNewToDoButton
     };
 }
