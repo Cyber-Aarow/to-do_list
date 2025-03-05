@@ -10,8 +10,25 @@ project1.addToDo(new ToDo('Bible Study', 'Go over James.', new Date(2025, 1, 25)
 project1.addToDo(new ToDo('Text Darren', 'Try to network with a web dev. This is added sentence space to test the wrapping function.', new Date(2025, 1, 24), 'unrushed'));
 
 
-DOM(project1).makeList();
+DOM(project1).showList();
 DOM(project1).setOrderButton();
+DOM(project1).setAddTaskButton();
+DOM(project1).setFormSubmit();
+
+const newToDoForm = document.querySelector('#add-task-form');
+    newToDoForm.addEventListener('submit', (event) =>{
+    event.preventDefault();
+            
+    const title = document.querySelector('#inputTitle').value;
+    const desc = document.querySelector('#inputDesc').value;
+    const date = document.querySelector('#inputDate').value;
+    const priority = document.querySelector('#inputPriority').value;
+    
+    project1.addToDo(new ToDo(title, desc, new Date(date), priority));
+
+    newToDoForm.reset();
+});
+newToDoForm.style.display = 'none';
 
 window.DOM = DOM;
 window.project1 = project1;

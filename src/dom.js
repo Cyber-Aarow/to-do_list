@@ -1,9 +1,9 @@
 export default function DOM(project){
-    let ul = document.querySelector('ul');
-    let rightHolder = document.querySelector('#right-holder');
-    let leftHolder = document.querySelector('#left-holder');
+    const ul = document.querySelector('ul');
+    const newToDoForm = document.querySelector('#add-task-form');
 
-    const makeList = () =>{
+
+    const showList = () =>{
         for(const toDo of project.getList()){
             console.log(toDo);
             let li = document.createElement('li');
@@ -62,23 +62,32 @@ export default function DOM(project){
                 orderButton.innerHTML = "Order: Priority";                
             }
             clearList();
-            setTimeout(makeList, 0);
+            setTimeout(showList, 0);
         });
     };
 
-    const setNewToDoButton = () =>{
-        let newToDoButton = document.querySelector('.new-to-do-button');
-        newToDoButton.addEventListener('click', () =>{
-            let newToDoForm = document.createElement('form');
-            
+    const setAddTaskButton = () =>{
+        let addTaskButton = document.querySelector('.add-task-button');
+        addTaskButton.addEventListener('click', () =>{
+            newToDoForm.style.display = 'block';
+        });
+    }
+
+    const setFormSubmit = () =>{
+        newToDoForm.addEventListener('submit', (event) =>{
+            event.preventDefault();
+            newToDoForm.style.display = 'none';
+            clearList();
+            setTimeout(showList, 0);
         });
     };
 
 
     return{
-        makeList,
+        showList,
         clearList,
         setOrderButton,
-        setNewToDoButton
+        setAddTaskButton,
+        setFormSubmit
     };
 }
