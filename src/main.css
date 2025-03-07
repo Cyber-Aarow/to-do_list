@@ -136,7 +136,7 @@ ul{
     border: 3px solid;
     border-radius: 15px;
     width: 60%;
-    height: 11vh;
+    height: 12.5vh;
     display: flex;
     cursor: default;
     overflow: hidden;
@@ -153,7 +153,6 @@ ul{
     flex-grow: 5;
     display: flex;
     flex-direction: column;
-    padding-top: 1vh;
 }
 
 .date {
@@ -166,11 +165,18 @@ ul{
     max-width: 125px;
 }
 
-.title {
+.upper-container {
     font-family: 'Poppins Bold';
     flex-grow: 1;
     padding-left: 2vh;
+    display: flex;
 }
+
+.title {
+    padding-left: 2vh;
+}
+
+/* Checkbox */
 
 .desc {
     font-family: 'Poppins ExtraLight';
@@ -188,7 +194,7 @@ ul{
     border-right: 3px solid red;
 }
 
-.urgent > .left-container > .title {
+.urgent > .left-container > .upper-container {
     border-bottom: 3px solid red;
 }
 
@@ -201,7 +207,7 @@ ul{
     border-right: 3px solid rgb(226, 202, 65);
 }
 
-.moderate > .left-container > .title {
+.moderate > .left-container > .upper-container {
     border-bottom: 3px solid rgb(226, 202, 65);
 }
 
@@ -215,7 +221,7 @@ ul{
     border-right: 3px solid green;
 }
 
-.unrushed > .left-container > .title {
+.unrushed > .left-container > .upper-container {
     border-bottom: 3px solid green;
 }
 
@@ -268,7 +274,7 @@ input:focus, textarea:focus {
     display: flex;
     gap: 5vh;
     justify-content: center;
-    margin-top: auto;
+    margin-top: 1.1vh;
     margin-bottom: 2vh;
 }
 
