@@ -72,6 +72,9 @@ header {
     gap: 20px;
     width: 100%;
     padding: 10px;
+    position: sticky;
+    top: 0;
+    z-index: 10;
 }
 
 header button {
@@ -101,7 +104,10 @@ header button {
     flex-direction: column;
     align-items: center;
     gap: 10vh;
-    margin-top: 10vh;
+    padding-top: 10vh;
+    position: fixed;
+    left: 7vw;
+    top: 12vh;
 }
 
 #left-holder button{
@@ -121,8 +127,9 @@ header button {
     display: flex;
     justify-content: left;
     padding-top: 15vh;
+    margin-left: 33vw;
     flex-direction: column;
-    gap: 10vh;
+    gap: 5vh;
 }
 
 ul{
@@ -130,14 +137,14 @@ ul{
     display: flex;
     flex-direction: column;
     gap: 2vh;
-    width: 90%;
+    width: 100%;
     margin-left: 30px;
 }
 
 .todo {
     border: 3px solid;
     border-radius: 15px;
-    width: 60%;
+    width: 65%;
     height: 12.5vh;
     display: flex;
     cursor: default;
