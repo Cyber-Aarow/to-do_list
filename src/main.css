@@ -121,6 +121,8 @@ header button {
     display: flex;
     justify-content: left;
     padding-top: 15vh;
+    flex-direction: column;
+    gap: 10vh;
 }
 
 ul{
@@ -153,6 +155,7 @@ ul{
     flex-grow: 5;
     display: flex;
     flex-direction: column;
+    border-right: 3px solid black;
 }
 
 .date {
@@ -170,6 +173,7 @@ ul{
     flex-grow: 1;
     padding-left: 2vh;
     display: flex;
+    border-bottom: 3px solid black;
 }
 
 .title {
@@ -185,46 +189,29 @@ ul{
 }
 
 
-.urgent {
+.urgent, .urgent * {
     background-color: lightcoral;
     border-color: red;
 }
 
-.urgent > .left-container {
-    border-right: 3px solid red;
-}
 
-.urgent > .left-container > .upper-container {
-    border-bottom: 3px solid red;
-}
-
-.moderate {
+.moderate, .moderate * {
     background-color: lightyellow;
     border-color: rgb(226, 202, 65);
 }
 
-.moderate > .left-container {
-    border-right: 3px solid rgb(226, 202, 65);
-}
 
-.moderate > .left-container > .upper-container {
-    border-bottom: 3px solid rgb(226, 202, 65);
-}
-
-
-.unrushed {
+.unrushed, .unrushed * {
     background-color: lightgreen;
     border-color: green;
 }
 
-.unrushed > .left-container {
-    border-right: 3px solid green;
-}
 
-.unrushed > .left-container > .upper-container {
-    border-bottom: 3px solid green;
+.finished, .finished * {
+    background-color: rgb(200, 200, 200);
+    border-color: rgb(134, 134, 134);
+    color: rgb(105, 105, 105);
 }
-
 
 /*Form*/
 #add-task-form {

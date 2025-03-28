@@ -2,6 +2,7 @@ export default function Project(){
     let list = [];
     let title = "";
     let order = "date";
+    let finished_list = [];
 
     const addToDo = (newToDo) =>{
         let index = list.findIndex(toDo => toDo.getDate() > newToDo.getDate());
@@ -34,8 +35,30 @@ export default function Project(){
         return list;
     };
 
+    const getFinishedList = () =>{
+        return finished_list;
+    };
+
     const getOrder = () =>{
         return order;
+    };
+
+    const moveToFinished = (toDo) =>{
+        let index = list.findIndex(matching => matching.getTitle() === toDo.getTitle() && matching.getDescription() === toDo.getDescription());
+        list.splice(index, 1);
+        finished_list.unshift(toDo);
+    };
+
+    const moveBack = (toDo) =>{
+        let index = finished_list.findIndex(matching => matching.getTitle() === toDo.getTitle() && matching.getDescription() === toDo.getDescription());
+        finished_list.splice(index, 1);
+        list.push(toDo);
+    }
+
+    const toggleFinished = (toDo) =>{
+        toDo.toggleFinished();
+        if(toDo.getFinished()) moveToFinished(toDo);
+        else moveBack(toDo);
     };
 
     return{
@@ -44,6 +67,8 @@ export default function Project(){
         sortByPriority,
         getTitles,
         getList,
-        getOrder
+        getFinishedList,
+        getOrder,
+        toggleFinished
     };
 }
