@@ -7,6 +7,24 @@
 </head>
 <body>
     <div class="form-overlay"></div>
+            <form action="" id="add-task-form">
+            <div class="title-desc-holder">
+                <input type="text" id="inputTitle" placeholder="Title">
+                <textarea id="inputDesc" rows="3" placeholder="Description"></textarea>
+            </div>
+            <div class="date-priority-holder">
+                <input type="date" id="inputDate">
+                <select id="inputPriority">
+                    <option value=""disabled selected hidden>Priority</option>
+                    <option value="unrushed">Unrushed</option>
+                    <option value="moderate">Moderate</option>
+                    <option value="urgent">Urgent</option>
+                </select>
+            </div>
+            <div class="submit-holder">
+                <button id="form-submit-button">Add Task</button>
+            </div>
+        </form>
     <header>
         <button class="project1">Project 1</button>
         <button class="header-plus">+</button>
@@ -24,25 +42,6 @@
 
             </ul>
         </div>
-        <form action="" id="add-task-form">
-            <div class="title-desc-holder">
-                <input type="text" id="inputTitle" placeholder="Title">
-                <textarea id="inputDesc" rows="3" placeholder="Description"></textarea>
-            </div>
-            <div class="date-priority-holder">
-                <input type="date" id="inputDate">
-                <select id="inputPriority">
-                    <option value=""disabled selected hidden>Priority</option>
-                    <option value="unrushed">Unrushed</option>
-                    <option value="moderate">Moderate</option>
-                    <option value="urgent">Urgent</option>
-                </select>
-            </div>
-            <div class="submit-holder">
-                <button id="form-submit-button">Add Task</button>
-            </div>
-
-        </form>
     </div>
 </body>
 </html>
