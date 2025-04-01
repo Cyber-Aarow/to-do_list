@@ -14,6 +14,7 @@ DOM(project1).showList();
 DOM(project1).setOrderButton();
 DOM(project1).setAddTaskButton();
 DOM(project1).setFormSubmit();
+DOM(project1).setFormOverlay();
 
 const newToDoForm = document.querySelector('#add-task-form');
     newToDoForm.addEventListener('submit', (event) =>{

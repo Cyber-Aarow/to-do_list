@@ -2,7 +2,8 @@ export default function DOM(project){
     const toDoList = document.querySelector('.to-do-list');
     const finishedList = document.querySelector('.finished-list')
     const newToDoForm = document.querySelector('#add-task-form');
-
+    const formOverlay = document.querySelector('.form-overlay');
+    
 
     const showList = () =>{
         for(const toDo of project.getList()){
@@ -150,6 +151,7 @@ export default function DOM(project){
         let addTaskButton = document.querySelector('.add-task-button');
         addTaskButton.addEventListener('click', () =>{
             newToDoForm.style.display = 'block';
+            formOverlay.classList.add('visible');
         });
     }
 
@@ -157,16 +159,24 @@ export default function DOM(project){
         newToDoForm.addEventListener('submit', (event) =>{
             event.preventDefault();
             newToDoForm.style.display = 'none';
+            formOverlay.classList.remove('visible');
             resetLists();
         });
     };
 
+    const setFormOverlay = () =>{
+        formOverlay.addEventListener('click', () =>{
+            newToDoForm.style.display = 'none';
+            formOverlay.classList.remove('visible');
+        });
+    };
 
     return{
         showList,
         clearList,
         setOrderButton,
         setAddTaskButton,
-        setFormSubmit
+        setFormSubmit,
+        setFormOverlay
     };
 }
