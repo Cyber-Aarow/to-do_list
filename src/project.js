@@ -10,6 +10,11 @@ export default function Project(){
         else list.splice(index, 0, newToDo);
     };
 
+    const removeToDo = (toDo) =>{
+        let index = list.findIndex(matching => matching.getTitle() === toDo.getTitle() && matching.getDescription() === toDo.getDescription());
+        list.splice(index, 1);
+    };
+
     const sortByDate = () =>{
         list.sort((a, b) => new Date(a.getDate()) - new Date(b.getDate()));
         order = 'date';
@@ -63,6 +68,7 @@ export default function Project(){
 
     return{
         addToDo,
+        removeToDo,
         sortByDate,
         sortByPriority,
         getTitles,

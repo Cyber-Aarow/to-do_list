@@ -12,11 +12,12 @@ export default function DOM(project){
             let desc = document.createElement('p');
             let leftContainer = document.createElement('div');
             let upperContainer = document.createElement('div');
-
+            let rightContainer = document.createElement('div');
+            let removeButton = document.createElement('button');
 
             let checkbox = makeCheckbox();
             setCheckbox(checkbox, toDo);
-            
+            setRemoveButton(removeButton, toDo);
             if(toDo.getFinished()) {
                 li.classList.add('finished');
                 checkbox.checked = true;
@@ -28,18 +29,20 @@ export default function DOM(project){
             desc.classList.add('desc');
             leftContainer.classList.add('left-container');
             upperContainer.classList.add('upper-container');
+            rightContainer.classList.add('right-container');
+            removeButton.classList.add('remove-button')
 
             date.innerHTML = toDo.getDate();
             title.innerHTML = toDo.getTitle();
             desc.innerHTML = toDo.getDescription();
-            
+            removeButton.innerHTML = 'X';
             
 
             upperContainer.append(checkbox, title);
             leftContainer.append(upperContainer, desc);
+            rightContainer.append(removeButton, date);
             
-            li.appendChild(leftContainer);
-            li.appendChild(date);
+            li.append(leftContainer, rightContainer);
 
             setPriority(toDo, li);
             
@@ -59,7 +62,7 @@ export default function DOM(project){
 
             let checkbox = makeCheckbox();
             setCheckbox(checkbox, toDo);
-            
+            checkbox.checked = true;
             li.classList.add('finished', 'todo');
             date.classList.add('date');
             title.classList.add('title');
@@ -103,6 +106,13 @@ export default function DOM(project){
             resetLists();
         });
     };
+
+    const setRemoveButton = (removeButton, toDo) =>{
+        removeButton.addEventListener('click', () =>{
+            project.removeToDo(toDo);
+            resetLists();
+        });
+    }
 
     const setPriority = (toDo, li) =>{
         if(toDo.getPriority() === 'unrushed'){

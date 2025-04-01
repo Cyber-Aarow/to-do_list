@@ -165,16 +165,6 @@ ul{
     border-right: 3px solid black;
 }
 
-.date {
-    font-family: 'Tall Block';
-    flex-grow: 1;
-    text-align: center;
-    font-size: 49px;
-    margin: auto;
-    min-width: 125px;
-    max-width: 125px;
-}
-
 .upper-container {
     font-family: 'Poppins Bold';
     flex-grow: 1;
@@ -182,19 +172,6 @@ ul{
     display: flex;
     border-bottom: 3px solid black;
 }
-
-.title {
-    padding-left: 2vh;
-}
-
-/* Checkbox */
-
-.desc {
-    font-family: 'Poppins ExtraLight';
-    flex-grow: 2;
-    padding-left: 2vh;
-}
-
 
 .urgent, .urgent * {
     background-color: lightcoral;
@@ -211,6 +188,46 @@ ul{
 .unrushed, .unrushed * {
     background-color: lightgreen;
     border-color: green;
+}
+
+.title {
+    padding-left: 2vh;
+}
+
+.right-container {
+    display: flex;
+    flex-direction: column;
+
+}
+
+.remove-button {
+    margin: 3px 5px 0 auto;
+    font-size: larger;
+    font-weight: bold;
+    opacity: 0;
+    transition: opacity 0.2s ease-in-out;
+}
+
+.right-container:hover .remove-button {
+    opacity: 1;
+}
+
+.date {
+    font-family: 'Tall Block';
+    flex-grow: 1;
+    text-align: center;
+    font-size: 49px;
+    margin: auto;
+    min-width: 125px;
+    max-width: 125px;
+}
+
+/* Checkbox */
+
+.desc {
+    font-family: 'Poppins ExtraLight';
+    flex-grow: 2;
+    padding-left: 2vh;
 }
 
 
@@ -304,9 +321,10 @@ input:focus, textarea:focus {
 
 #form-submit-button {
     background-color: rgb(37, 49, 221);
-    border: 1px solid black;
+    border: 1px solid rgb(9, 1, 85);
     padding: 2vh;
     font-size: large;
     color: white;
     font-family: 'Poppins SemiBold';
+    z-index: 10;
 }
