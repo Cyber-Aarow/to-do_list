@@ -132,15 +132,10 @@ export default function DOM(project){
 
     const editToDo = (li, updateFunc) =>{
         li.addEventListener('blur', ()=>{
-            console.log('Blurred!');
             const title = li.querySelector('.title');
             const desc = li.querySelector('.desc');
             const date = li.querySelector('.date');
-            const title_ = title.textContent.trim();
-            console.log('Blur text: ', title_);
-            updateFunc(title.textContent.trim(), desc.textContent.trim());
-            
-            
+            updateFunc(title.textContent.trim(), desc.textContent.trim());     
         });
     };
 
