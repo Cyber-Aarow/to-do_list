@@ -38,7 +38,8 @@ export default function DOM(project){
             desc.innerHTML = toDo.getDescription();
             removeButton.innerHTML = 'X';
             
-
+            
+            
             upperContainer.append(checkbox, title);
             leftContainer.append(upperContainer, desc);
             rightContainer.append(removeButton, date);
@@ -46,7 +47,9 @@ export default function DOM(project){
             li.append(leftContainer, rightContainer);
 
             setPriority(toDo, li);
-            
+            li.contentEditable = 'true';
+            editToDo(li, toDo.changeToDo.bind(toDo));
+
             toDoList.appendChild(li);
         }
     };
@@ -127,6 +130,20 @@ export default function DOM(project){
         }
     };
 
+    const editToDo = (li, updateFunc) =>{
+        li.addEventListener('blur', ()=>{
+            console.log('Blurred!');
+            const title = li.querySelector('.title');
+            const desc = li.querySelector('.desc');
+            const date = li.querySelector('.date');
+            const title_ = title.textContent.trim();
+            console.log('Blur text: ', title_);
+            updateFunc(title.textContent.trim(), desc.textContent.trim());
+            
+            
+        });
+    };
+
     const clearList = () =>{
         toDoList.replaceChildren();
         finishedList.replaceChildren();
@@ -135,15 +152,16 @@ export default function DOM(project){
     const setOrderButton = () =>{
         let orderButton = document.querySelector('.order-button');
         orderButton.addEventListener('click', () => {
-            if(project.getOrder() === 'priority'){
-                project.sortByDate();
-                orderButton.innerHTML = "Order: Date";
-            }
-            else if(project.getOrder() === 'date'){
-                project.sortByPriority();
-                orderButton.innerHTML = "Order: Priority";                
-            }
-            resetLists();
+            setTimeout(()=>{
+                if(project.getOrder() === 'priority'){
+                    project.sortByDate();
+                    orderButton.innerHTML = "Order: Date";
+                }
+                else if(project.getOrder() === 'date'){
+                    project.sortByPriority();
+                    orderButton.innerHTML = "Order: Priority";                
+                }
+                resetLists();}, 50)
         });
     };
 

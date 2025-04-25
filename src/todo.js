@@ -19,6 +19,24 @@ export default class ToDo {
         else this.#priority = newPriority;
     }
 
+    setTitle(newTitle){
+        this.#title = newTitle;
+    }
+
+    setDescription(newDescription){
+        this.#description = newDescription;
+    }
+
+    setDate(newDate){
+        this.#dueDate = newDate;
+    }
+
+    changeToDo(newTitle, newDescription, newDate=this.#dueDate){
+        this.setTitle(newTitle);
+        this.setDescription(newDescription);
+        this.setDate(newDate);
+    }
+
     getTitle(){
         return this.#title;
     }
