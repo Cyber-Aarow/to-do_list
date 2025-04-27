@@ -196,8 +196,7 @@ ul{
 
 .right-container {
     display: flex;
-    flex-direction: column;
-
+    padding-left: 3px;
 }
 
 .remove-button {
@@ -207,6 +206,7 @@ ul{
     visibility: hidden;
     opacity: 0;
     transition: opacity 0.2s ease-in-out;
+    align-self: flex-start;
 }
 
 .right-container:hover .remove-button {
@@ -220,6 +220,7 @@ ul{
     text-align: center;
     font-size: 49px;
     margin: auto;
+    padding-left: 15px;
     min-width: 125px;
     max-width: 125px;
 }

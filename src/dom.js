@@ -42,7 +42,7 @@ export default function DOM(project){
             
             upperContainer.append(checkbox, title);
             leftContainer.append(upperContainer, desc);
-            rightContainer.append(removeButton, date);
+            rightContainer.append(date, removeButton);
             
             li.append(leftContainer, rightContainer);
 
@@ -130,11 +130,21 @@ export default function DOM(project){
         }
     };
 
+    const parseDate = (text) =>{
+        const match = text.match(/^(\d{2})\/(\d{2})$/);
+        const [_, month, day] = match;
+        const date = new Date();
+        date.setMonth(parseInt(month, 10) - 1);
+        date.setDate(parseInt(day, 10));
+        return date;
+    };
+
     const editToDo = (li, updateFunc) =>{
         li.addEventListener('blur', ()=>{
             const title = li.querySelector('.title');
             const desc = li.querySelector('.desc');
             const date = li.querySelector('.date');
+            //const newDate = parseDate(date.textContent.trim());
             updateFunc(title.textContent.trim(), desc.textContent.trim());     
         });
     };
