@@ -3,7 +3,10 @@ export default function DOM(project){
     const finishedList = document.querySelector('.finished-list')
     const newToDoForm = document.querySelector('#add-task-form');
     const formOverlay = document.querySelector('.form-overlay');
-    
+    const months = [
+        'Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun',
+        'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'
+      ];
 
     const showList = () =>{
         for(const toDo of project.getList()){
@@ -131,12 +134,19 @@ export default function DOM(project){
     };
 
     const parseDate = (text) =>{
-        const match = text.match(/^(\d{2})\/(\d{2})$/);
-        const [_, month, day] = match;
-        const date = new Date();
-        date.setMonth(parseInt(month, 10) - 1);
-        date.setDate(parseInt(day, 10));
-        return date;
+        const parts = text.trim().split(' ');
+        if(parts.length !== 3) return null;
+
+        const monthStr = parts[1];
+        const dayStr = parts[2];
+
+        const monthIndex = months.indexOf(monthStr);
+        if(monthIndex === -1) return null;
+
+        const day = parseInt(dayStr, 10);
+        const now = new Date();
+        const year = now.getFullYear();
+        return new Date(year, monthIndex, day);
     };
 
     const editToDo = (li, updateFunc) =>{
@@ -144,8 +154,8 @@ export default function DOM(project){
             const title = li.querySelector('.title');
             const desc = li.querySelector('.desc');
             const date = li.querySelector('.date');
-            //const newDate = parseDate(date.textContent.trim());
-            updateFunc(title.textContent.trim(), desc.textContent.trim());     
+            const newDate = parseDate(date.textContent.trim());
+            updateFunc(title.textContent.trim(), desc.textContent.trim(), newDate);     
         });
     };
 

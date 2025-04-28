@@ -28,7 +28,7 @@ export default class ToDo {
     }
 
     setDate(newDate){
-        this.#dueDate = newDate;
+        this.#dueDate = newDate.toLocaleDateString('en-US', {weekday: 'short', month: 'short', day: 'numeric'}).replace(',', '');
     }
 
     changeToDo(newTitle, newDescription, newDate=this.#dueDate){
