@@ -8,7 +8,7 @@ export default class ToDo {
     constructor(title, description, dueDate, priority, finished=false){
         this.#title = title;
         this.#description = description;
-        this.#dueDate = dueDate.toLocaleDateString('en-US', {weekday: 'short', month: 'short', day: 'numeric'}).replace(',', '');
+        this.#dueDate = dueDate;
         this.#priority = priority;
         this.#finished = finished;
     }
@@ -28,7 +28,7 @@ export default class ToDo {
     }
 
     setDate(newDate){
-        this.#dueDate = newDate.toLocaleDateString('en-US', {weekday: 'short', month: 'short', day: 'numeric'}).replace(',', '');
+        this.#dueDate = newDate;
     }
 
     changeToDo(newTitle, newDescription, newDate=this.#dueDate){

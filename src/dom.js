@@ -36,7 +36,7 @@ export default function DOM(project){
             rightContainer.classList.add('right-container');
             removeButton.classList.add('remove-button')
 
-            date.innerHTML = toDo.getDate();
+            date.innerHTML = toDo.getDate().toLocaleDateString('en-US', {weekday: 'short', month: 'short', day: 'numeric'}).replace(',', '');
             title.innerHTML = toDo.getTitle();
             desc.innerHTML = toDo.getDescription();
             removeButton.innerHTML = 'X';
@@ -136,7 +136,6 @@ export default function DOM(project){
     const parseDate = (text) =>{
         const parts = text.trim().split(' ');
         if(parts.length !== 3) return null;
-
         const monthStr = parts[1];
         const dayStr = parts[2];
 
@@ -155,7 +154,12 @@ export default function DOM(project){
             const desc = li.querySelector('.desc');
             const date = li.querySelector('.date');
             const newDate = parseDate(date.textContent.trim());
-            updateFunc(title.textContent.trim(), desc.textContent.trim(), newDate);     
+            if(newDate !== null){
+                updateFunc(title.textContent.trim(), desc.textContent.trim(), newDate);
+            }
+            else{
+                updateFunc(title.textContent.trim(), desc.textContent.trim());     
+            }
         });
     };
 
