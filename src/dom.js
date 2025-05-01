@@ -19,8 +19,7 @@ export default function DOM(project){
             let rightContainer = document.createElement('div');
             let removeButton = document.createElement('button');
 
-            let checkbox = makeCheckbox();
-            setCheckbox(checkbox, toDo);
+            let checkboxWrapper = makeCheckbox(toDo);
             setRemoveButton(removeButton, toDo);
             if(toDo.getFinished()) {
                 li.classList.add('finished');
@@ -43,7 +42,7 @@ export default function DOM(project){
             
             
             
-            upperContainer.append(checkbox, title);
+            upperContainer.append(checkboxWrapper, title);
             leftContainer.append(upperContainer, desc);
             rightContainer.append(date, removeButton);
             
@@ -67,9 +66,7 @@ export default function DOM(project){
             let upperContainer = document.createElement('div');
 
 
-            let checkbox = makeCheckbox();
-            setCheckbox(checkbox, toDo);
-            checkbox.checked = true;
+            let checkbox = makeCheckbox(toDo);
             li.classList.add('finished', 'todo');
             date.classList.add('date');
             title.classList.add('title');
@@ -101,17 +98,26 @@ export default function DOM(project){
         setTimeout(showFinishedList, 0);
     };
 
-    const makeCheckbox = () =>{
+    const makeCheckbox = (toDo) =>{
+        let checkboxWrapper = document.createElement('div');
         let checkbox = document.createElement('input');
-        checkbox.type = 'checkbox';
-        return checkbox;
-    };
+        let label = document.createElement('label');
+        let span = document.createElement('span');
 
-    const setCheckbox = (checkbox, toDo) =>{
-        checkbox.addEventListener('change', () =>{
+        checkbox.type = 'checkbox';
+        checkbox.classList.add('checkbox');
+        checkboxWrapper.classList.add('checkbox-wrapper');
+        if(toDo.getFinished()) checkbox.checked = true;
+
+        span.addEventListener('click', () =>{
             project.toggleFinished(toDo);
             resetLists();
         });
+
+        label.append(checkbox, span);
+        checkboxWrapper.append(label);
+        checkboxWrapper.contentEditable = false;
+        return checkboxWrapper;
     };
 
     const setRemoveButton = (removeButton, toDo) =>{
