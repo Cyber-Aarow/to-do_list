@@ -21,10 +21,6 @@ export default function DOM(project){
 
             let checkboxWrapper = makeCheckbox(toDo);
             setRemoveButton(removeButton, toDo);
-            if(toDo.getFinished()) {
-                li.classList.add('finished');
-                checkbox.checked = true;
-            }
 
             li.classList.add('todo');
             date.classList.add('date');
@@ -39,7 +35,6 @@ export default function DOM(project){
             title.innerHTML = toDo.getTitle();
             desc.innerHTML = toDo.getDescription();
             removeButton.innerHTML = 'X';
-            
             
             
             upperContainer.append(checkboxWrapper, title);
@@ -64,27 +59,31 @@ export default function DOM(project){
             let desc = document.createElement('p');
             let leftContainer = document.createElement('div');
             let upperContainer = document.createElement('div');
-
+            let removeButton = document.createElement('button');
 
             let checkbox = makeCheckbox(toDo);
+            setRemoveButton(removeButton, toDo);
+
+
             li.classList.add('finished', 'todo');
             date.classList.add('date');
             title.classList.add('title');
             desc.classList.add('desc');
             leftContainer.classList.add('left-container');
             upperContainer.classList.add('upper-container');
+            removeButton.classList.add('remove-button')
 
             date.innerHTML = toDo.getDate();
             title.innerHTML = toDo.getTitle();
             desc.innerHTML = toDo.getDescription();
-            
-            
+            removeButton.innerHTML = 'X';
+
 
             upperContainer.append(checkbox, title);
             leftContainer.append(upperContainer, desc);
             
             li.appendChild(leftContainer);
-            li.appendChild(date);
+            li.appendChild(date, removeButton);
 
             setPriority(toDo, li);
             
@@ -109,9 +108,12 @@ export default function DOM(project){
         checkboxWrapper.classList.add('checkbox-wrapper');
         if(toDo.getFinished()) checkbox.checked = true;
 
-        span.addEventListener('click', () =>{
+        span.addEventListener('click', (event) =>{
             project.toggleFinished(toDo);
             resetLists();
+        });
+        label.addEventListener('click', (event) =>{
+            event.preventDefault();
         });
 
         label.append(checkbox, span);
