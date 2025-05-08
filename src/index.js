@@ -1,7 +1,6 @@
 import ToDo from './todo.js';
 import Project from './project.js';
 import DOM from './dom.js';
-import setupBaseUI from './ui.js';
 import './main.css';
 
 let project1 = Project();
@@ -19,10 +18,10 @@ project2.addToDo(new ToDo('WAAAAAAAAAAR', 'Try to network with a web dev. This i
 
 
 DOM(project1).showList();
-setupBaseUI.setOrderButton();
-setupBaseUI.setAddTaskButton();
-setupBaseUI.setFormSubmit();
-setupBaseUI.setFormOverlay();
+DOM(project1).setOrderButton();
+DOM(project1).setAddTaskButton();
+DOM(project1).setFormSubmit();
+DOM(project1).setFormOverlay();
 
 const newToDoForm = document.querySelector('#add-task-form');
     newToDoForm.addEventListener('submit', (event) =>{
