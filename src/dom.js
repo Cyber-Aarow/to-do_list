@@ -175,22 +175,6 @@ export default function DOM(project){
         toDoList.replaceChildren();
         finishedList.replaceChildren();
     };
-    
-    const setOrderButton = () =>{
-        let orderButton = document.querySelector('.order-button');
-        orderButton.addEventListener('click', () => {
-            setTimeout(()=>{
-                if(project.getOrder() === 'priority'){
-                    project.sortByDate();
-                    orderButton.innerHTML = "Order: Date";
-                }
-                else if(project.getOrder() === 'date'){
-                    project.sortByPriority();
-                    orderButton.innerHTML = "Order: Priority";                
-                }
-                resetLists();}, 50)
-        });
-    };
 
     const setAddTaskButton = () =>{
         let addTaskButton = document.querySelector('.add-task-button');
@@ -218,7 +202,6 @@ export default function DOM(project){
 
     return{
         resetLists,
-        setOrderButton,
         setAddTaskButton,
         setFormSubmit,
         setFormOverlay

@@ -1,20 +1,40 @@
 import ToDo from './todo.js';
 import Project from './project.js';
 import DOM from './dom.js';
-import {setProjectButton} from './ui.js';
+import {setProjectButton, setOrderButton, updateOrderButtonText} from './ui.js';
 import './main.css';
 
 function displayProject(){
     DOM(currentProject).resetLists();
-    DOM(currentProject).setOrderButton();
     DOM(currentProject).setAddTaskButton();
     DOM(currentProject).setFormSubmit();
     DOM(currentProject).setFormOverlay();
+
+    displayOrderButton();
+}
+
+function displayOrderButton(){
+    let orderButton = document.querySelector('.order-button');
+    orderButton = setOrderButton(orderButton, ()=> changeOrder(currentProject, orderButton));
+    updateOrderButtonText(orderButton, currentProject.getOrder());
 }
 
 function switchProject(project){
     currentProject = project;
     displayProject(currentProject);
+}
+
+function changeOrder(project, orderButton){
+    setTimeout(()=>{
+        if(project.getOrder() === 'priority'){
+            project.sortByDate();
+            orderButton.textContent = "Order: Date";
+        }
+        else if(project.getOrder() === 'date'){
+            project.sortByPriority();
+            orderButton.textContent = "Order: Priority";                
+        }
+        DOM(project).resetLists();}, 50)
 }
 
 let project1 = Project();
