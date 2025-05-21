@@ -217,8 +217,7 @@ export default function DOM(project){
     };
 
     return{
-        showList,
-        clearList,
+        resetLists,
         setOrderButton,
         setAddTaskButton,
         setFormSubmit,
