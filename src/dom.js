@@ -175,10 +175,6 @@ export default function DOM(project){
         toDoList.replaceChildren();
         finishedList.replaceChildren();
     };
-
-    const setProjectButton = (projectButton) =>{
-        projectButton.addEventListener('click', () => {});
-    };
     
     const setOrderButton = () =>{
         let orderButton = document.querySelector('.order-button');

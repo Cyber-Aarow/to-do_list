@@ -4,6 +4,7 @@ import DOM from './dom.js';
 import './main.css';
 
 let project1 = Project();
+let currentProject = project1;
 
 project1.addToDo(new ToDo('Dinner', 'Eat spaghetti.', new Date(2025, 1, 22), 'moderate'));
 project1.addToDo(new ToDo('Bible Study', 'Go over James.', new Date(2025, 1, 25), 'urgent'));
@@ -17,11 +18,11 @@ project2.addToDo(new ToDo('WAAAAAAAAAAR', 'Try to network with a web dev. This i
 
 
 
-DOM(project1).showList();
-DOM(project1).setOrderButton();
-DOM(project1).setAddTaskButton();
-DOM(project1).setFormSubmit();
-DOM(project1).setFormOverlay();
+DOM(currentProject).showList();
+DOM(currentProject).setOrderButton();
+DOM(currentProject).setAddTaskButton();
+DOM(currentProject).setFormSubmit();
+DOM(currentProject).setFormOverlay();
 
 const newToDoForm = document.querySelector('#add-task-form');
     newToDoForm.addEventListener('submit', (event) =>{
