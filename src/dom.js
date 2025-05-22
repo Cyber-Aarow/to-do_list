@@ -176,34 +176,7 @@ export default function DOM(project){
         finishedList.replaceChildren();
     };
 
-    const setAddTaskButton = () =>{
-        let addTaskButton = document.querySelector('.add-task-button');
-        addTaskButton.addEventListener('click', () =>{
-            newToDoForm.style.display = 'block';
-            formOverlay.classList.add('visible');
-        });
-    }
-
-    const setFormSubmit = () =>{
-        newToDoForm.addEventListener('submit', (event) =>{
-            event.preventDefault();
-            newToDoForm.style.display = 'none';
-            formOverlay.classList.remove('visible');
-            resetLists();
-        });
-    };
-
-    const setFormOverlay = () =>{
-        formOverlay.addEventListener('click', () =>{
-            newToDoForm.style.display = 'none';
-            formOverlay.classList.remove('visible');
-        });
-    };
-
     return{
         resetLists,
-        setAddTaskButton,
-        setFormSubmit,
-        setFormOverlay
     };
 }

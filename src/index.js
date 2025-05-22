@@ -1,14 +1,20 @@
 import ToDo from './todo.js';
 import Project from './project.js';
 import DOM from './dom.js';
-import {setProjectButton, setOrderButton, updateOrderButtonText} from './ui.js';
+import {setProjectButton, setOrderButton, updateOrderButtonText,
+     setAddTaskButton, setFormOverlay, setFormSubmit
+} from './ui.js';
 import './main.css';
+
+const newToDoForm = document.querySelector('#add-task-form');
+const formOverlay = document.querySelector('.form-overlay');
 
 function displayProject(){
     DOM(currentProject).resetLists();
-    DOM(currentProject).setAddTaskButton();
-    DOM(currentProject).setFormSubmit();
-    DOM(currentProject).setFormOverlay();
+    setAddTaskButton(newToDoForm, formOverlay);
+    setFormOverlay(newToDoForm, formOverlay);
+    setFormSubmit(newToDoForm, formOverlay, ()=> DOM(currentProject).resetLists());
+    
 
     displayOrderButton();
 }
@@ -60,8 +66,8 @@ setProjectButton(project1Button, ()=> switchProject(project1));
 setProjectButton(project2Button, ()=> switchProject(project2));
 
 
-const newToDoForm = document.querySelector('#add-task-form');
-    newToDoForm.addEventListener('submit', (event) =>{
+
+newToDoForm.addEventListener('submit', (event) =>{
     event.preventDefault();
             
     const title = document.querySelector('#inputTitle').value;
@@ -69,7 +75,7 @@ const newToDoForm = document.querySelector('#add-task-form');
     const date = document.querySelector('#inputDate').value;
     const priority = document.querySelector('#inputPriority').value;
     
-    project1.addToDo(new ToDo(title, desc, new Date(date), priority));
+    currentProject.addToDo(new ToDo(title, desc, new Date(date), priority));
 
     newToDoForm.reset();
 });
