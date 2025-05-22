@@ -2,6 +2,15 @@ export function setProjectButton(projectButton, onClick) {
     projectButton.addEventListener('click', onClick);
 }
 
+export function colorProjectButton(projectButton, project, currentProject){
+    if(currentProject === project){
+        projectButton.style.backgroundColor = 'rgb(125, 63, 160)';
+    }
+    else{
+        projectButton.style.backgroundColor = 'rgb(181, 149, 199)';
+    }
+}
+
 export function setOrderButton(orderButton, onClick){
     const newOrderButton = orderButton.cloneNode(true);
     orderButton.parentNode.replaceChild(newOrderButton, orderButton);
