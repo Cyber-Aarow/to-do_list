@@ -1,8 +1,6 @@
 export default function DOM(project){
     const toDoList = document.querySelector('.to-do-list');
-    const finishedList = document.querySelector('.finished-list')
-    const newToDoForm = document.querySelector('#add-task-form');
-    const formOverlay = document.querySelector('.form-overlay');
+    const finishedList = document.querySelector('.finished-list');
     const months = [
         'Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun',
         'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'
