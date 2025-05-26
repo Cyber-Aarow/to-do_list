@@ -29,7 +29,9 @@ export default function DOM(project){
             rightContainer.classList.add('right-container');
             removeButton.classList.add('remove-button')
 
-            date.innerHTML = toDo.getDate().toLocaleDateString('en-US', {weekday: 'short', month: 'short', day: 'numeric'}).replace(',', '');
+            const dayOfWeek = toDo.getDate().toLocaleDateString('en-US', {weekday: 'short'});
+            const monthDay = toDo.getDate().toLocaleDateString('en-US', {month: 'short', day: 'numeric'});
+            date.innerHTML = `${dayOfWeek}<br>${monthDay}`;
             title.innerHTML = toDo.getTitle();
             desc.innerHTML = toDo.getDescription();
             removeButton.innerHTML = 'X';
