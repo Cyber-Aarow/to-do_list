@@ -1,3 +1,4 @@
+/*Project Buttons*/
 export function setProjectButton(projectButton, onClick) {
     projectButton.addEventListener('click', onClick);
 }
@@ -11,6 +12,26 @@ export function colorProjectButton(projectButton, project, currentProject){
     }
 }
 
+export function createProjectButton(number, name, onClick){
+    const button = document.createElement('button');
+    const header = document.querySelector('header');
+    const addProjButton = document.querySelector('.add-project');
+
+    button.classList.add(`project${number}`);
+
+    setProjectButton(button, onClick);
+    button.textContent = name;
+    header.insertBefore(button, addProjButton);
+}
+
+export function setAddProjectButton(addProjButton, newProjForm, formOverlay){
+    addProjButton.addEventListener('click', ()=>{
+        newProjForm.style.display = 'block';
+        formOverlay.classList.add('visible');
+    });
+}
+
+/*Order Button*/
 export function setOrderButton(orderButton, onClick){
     const newOrderButton = orderButton.cloneNode(true);
     orderButton.parentNode.replaceChild(newOrderButton, orderButton);
@@ -22,6 +43,7 @@ export function updateOrderButtonText(orderButton, order){
     orderButton.textContent = order === 'date' ? 'Order: Date' : 'Order: Priority';
 }
 
+/*Add Task Button*/
 export function setAddTaskButton(newToDoForm, formOverlay){
     const addTaskButton = document.querySelector('.add-task-button')
     addTaskButton.addEventListener('click', () =>{
@@ -30,17 +52,18 @@ export function setAddTaskButton(newToDoForm, formOverlay){
     });
 }
 
-export function setFormOverlay(newToDoForm, formOverlay){
+/*Forms*/
+export function setFormOverlay(form, formOverlay){
     formOverlay.addEventListener('click', () =>{
-        newToDoForm.style.display = 'none';
+        form.style.display = 'none';
         formOverlay.classList.remove('visible');
     });
 }
 
-export function setFormSubmit(newToDoForm, formOverlay, resetLists){
-    newToDoForm.addEventListener('submit', (event) =>{
+export function setFormSubmit(form, formOverlay, resetLists){
+    form.addEventListener('submit', (event) =>{
         event.preventDefault();
-        newToDoForm.style.display = 'none';
+        form.style.display = 'none';
         formOverlay.classList.remove('visible');
         resetLists();
     });

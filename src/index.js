@@ -3,12 +3,15 @@ import Project from './project.js';
 import DOM from './dom.js';
 import {setProjectButton, setOrderButton, updateOrderButtonText,
      setAddTaskButton, setFormOverlay, setFormSubmit,
-     colorProjectButton
-} from './ui.js';
+     colorProjectButton, createProjectButton
+    } from './ui.js';
 import './main.css';
 
 const newToDoForm = document.querySelector('#add-task-form');
 const formOverlay = document.querySelector('.form-overlay');
+const addProjButton = document.querySelector('.add-project');
+let allProjects = [];
+
 let project1Button = document.querySelector('.project1');
 let project2Button = document.querySelector('.project2');
 
@@ -45,6 +48,16 @@ function changeOrder(project, orderButton){
         }
         DOM(project).resetLists();}, 50)
 }
+
+function createProject(name){
+    const newProject = Project(name);
+    switchProject(newProject);
+
+    createProjectButton(name, ()=> switchProject(newProject))
+}
+
+addProjButton.addEventListener('click', ()=>{});
+
 
 let project1 = Project();
 let project2 = Project();

@@ -1,8 +1,12 @@
 export default function Project(){
     let list = [];
-    let title = "";
+    let name = "";
     let order = "date";
     let finished_list = [];
+
+    const getName = () =>{
+        return name;
+    };
 
     const addToDo = (newToDo) =>{
         let index = list.findIndex(toDo => toDo.getDate() > newToDo.getDate());
@@ -67,6 +71,7 @@ export default function Project(){
     };
 
     return{
+        getName,
         addToDo,
         removeToDo,
         sortByDate,
