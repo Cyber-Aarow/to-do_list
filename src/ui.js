@@ -3,16 +3,7 @@ export function setProjectButton(projectButton, onClick) {
     projectButton.addEventListener('click', onClick);
 }
 
-export function colorProjectButton(projectButton, project, currentProject){
-    if(currentProject === project){
-        projectButton.style.backgroundColor = 'rgb(125, 63, 160)';
-    }
-    else{
-        projectButton.style.backgroundColor = 'rgb(181, 149, 199)';
-    }
-}
-
-export function createProjectButton(number, name, onClick){
+export function createProjectButton(number, title, onClick){
     const button = document.createElement('button');
     const header = document.querySelector('header');
     const addProjButton = document.querySelector('.add-project');
@@ -20,11 +11,14 @@ export function createProjectButton(number, name, onClick){
     button.classList.add(`project${number}`);
 
     setProjectButton(button, onClick);
-    button.textContent = name;
+    button.textContent = title;
     header.insertBefore(button, addProjButton);
+
+    return button;
 }
 
-export function setAddProjectButton(addProjButton, newProjForm, formOverlay){
+export function setAddProjectButton(newProjForm, formOverlay){
+    const addProjButton = document.querySelector('.add-project');
     addProjButton.addEventListener('click', ()=>{
         newProjForm.style.display = 'block';
         formOverlay.classList.add('visible');
@@ -60,11 +54,12 @@ export function setFormOverlay(form, formOverlay){
     });
 }
 
-export function setFormSubmit(form, formOverlay, resetLists){
+export function setFormSubmit(form, formOverlay, doThis){
     form.addEventListener('submit', (event) =>{
         event.preventDefault();
         form.style.display = 'none';
         formOverlay.classList.remove('visible');
-        resetLists();
+        if(doThis === undefined){}
+        else {doThis();}
     });
 };

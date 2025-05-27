@@ -3,26 +3,31 @@ import Project from './project.js';
 import DOM from './dom.js';
 import {setProjectButton, setOrderButton, updateOrderButtonText,
      setAddTaskButton, setFormOverlay, setFormSubmit,
-     colorProjectButton, createProjectButton
+     createProjectButton, setAddProjectButton
     } from './ui.js';
 import './main.css';
 
 const newToDoForm = document.querySelector('#add-task-form');
+const newProjForm = document.querySelector('#add-project-form');
 const formOverlay = document.querySelector('.form-overlay');
-const addProjButton = document.querySelector('.add-project');
-let allProjects = [];
 
 let project1Button = document.querySelector('.project1');
 let project2Button = document.querySelector('.project2');
+let project1 = Project();
+let project2 = Project();
+
+const allProjects = [project1, project2];
+const allProjButtons = [project1Button, project2Button];
 
 function displayProject(){
     DOM(currentProject).resetLists();
     setAddTaskButton(newToDoForm, formOverlay);
+    setAddProjectButton(newProjForm, formOverlay);
     setFormOverlay(newToDoForm, formOverlay);
+    setFormOverlay(newProjForm, formOverlay);
     setFormSubmit(newToDoForm, formOverlay, ()=> DOM(currentProject).resetLists());
+    setFormSubmit(newProjForm, formOverlay);
     displayOrderButton();
-    colorProjectButton(project1Button, project1, currentProject);
-    colorProjectButton(project2Button, project2, currentProject);
 }
 
 function displayOrderButton(){
@@ -32,7 +37,14 @@ function displayOrderButton(){
 }
 
 function switchProject(project){
+    const index0 = allProjects.indexOf(currentProject);
+    const index1 = allProjects.indexOf(project);
+
+    allProjButtons[index0].classList.remove('current-project');
+    allProjButtons[index1].classList.add('current-project');
+    
     currentProject = project;
+
     displayProject(currentProject);
 }
 
@@ -49,18 +61,18 @@ function changeOrder(project, orderButton){
         DOM(project).resetLists();}, 50)
 }
 
-function createProject(name){
-    const newProject = Project(name);
-    switchProject(newProject);
+function createProject(title){
+    const newProject = Project(title);
+    allProjects.push(newProject);
+    const index = allProjects.indexOf(newProject) + 1;
 
-    createProjectButton(name, ()=> switchProject(newProject))
+    const button = createProjectButton(index, title, ()=> switchProject(newProject));
+    allProjButtons.push(button);
+    switchProject(newProject);
 }
 
-addProjButton.addEventListener('click', ()=>{});
 
 
-let project1 = Project();
-let project2 = Project();
 let currentProject = project1;
 
 project1.addToDo(new ToDo('Dinner', 'Eat spaghetti.', new Date(2025, 1, 22), 'moderate'));
@@ -91,7 +103,17 @@ newToDoForm.addEventListener('submit', (event) =>{
 
     newToDoForm.reset();
 });
+
+newProjForm.addEventListener('submit', (event) =>{
+    event.preventDefault();
+    const title = document.querySelector('#inputProject').value;
+    createProject(title);
+
+    newProjForm.reset();
+});
+
 newToDoForm.style.display = 'none';
+newProjForm.style.display = 'none';
 
 window.DOM = DOM;
 window.project1 = project1;

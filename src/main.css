@@ -88,6 +88,10 @@ header button {
     font-family: 'Poppins Bold';
 }
 
+.current-project {
+    background-color: rgb(125, 63, 160);
+}
+
 .add-project {
     font-size: 50px;
     font-weight: bolder;
