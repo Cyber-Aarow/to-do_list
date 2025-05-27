@@ -71,26 +71,6 @@ function createProject(title){
     switchProject(newProject);
 }
 
-
-
-let currentProject = project1;
-
-project1.addToDo(new ToDo('Dinner', 'Eat spaghetti.', new Date(2025, 1, 22), 'moderate'));
-project1.addToDo(new ToDo('Bible Study', 'Go over James.', new Date(2025, 1, 25), 'urgent'));
-project1.addToDo(new ToDo('Text Darren', 'Try to network with a web dev. This is added sentence space to test the wrapping function.', new Date(2025, 1, 24), 'unrushed'));
-
-displayProject();
-
-project2.addToDo(new ToDo('MONKEY', 'Eat spaghetti.', new Date(2025, 1, 22), 'moderate'));
-project2.addToDo(new ToDo('THROW', 'Go over James.', new Date(2025, 1, 25), 'urgent'));
-project2.addToDo(new ToDo('WAAAAAAAAAAR', 'Try to network with a web dev. This is added sentence space to test the wrapping function.', new Date(2025, 1, 24), 'unrushed'));
-
-
-setProjectButton(project1Button, ()=> switchProject(project1));
-setProjectButton(project2Button, ()=> switchProject(project2));
-
-
-
 newToDoForm.addEventListener('submit', (event) =>{
     event.preventDefault();
             
@@ -114,6 +94,23 @@ newProjForm.addEventListener('submit', (event) =>{
 
 newToDoForm.style.display = 'none';
 newProjForm.style.display = 'none';
+
+
+let currentProject = project1;
+
+project1.addToDo(new ToDo('Dinner', 'Eat spaghetti.', new Date(2025, 1, 22), 'moderate'));
+project1.addToDo(new ToDo('Bible Study', 'Go over James.', new Date(2025, 1, 25), 'urgent'));
+project1.addToDo(new ToDo('Juggle', 'Playing catch with yourself. This is added sentence space to test the wrapping function.', new Date(2025, 1, 24), 'unrushed'));
+
+displayProject();
+
+project2.addToDo(new ToDo('MONKEY', 'OOH OOH. AAH AAH.', new Date(2025, 1, 22), 'moderate'));
+project2.addToDo(new ToDo('THROW', 'BANANAS. ROCKS. MUD.', new Date(2025, 1, 25), 'urgent'));
+project2.addToDo(new ToDo('WAAAAAAAAAAR', ' AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA.', new Date(2025, 1, 24), 'unrushed'));
+
+
+setProjectButton(project1Button, ()=> switchProject(project1));
+setProjectButton(project2Button, ()=> switchProject(project2));
 
 window.DOM = DOM;
 window.project1 = project1;
