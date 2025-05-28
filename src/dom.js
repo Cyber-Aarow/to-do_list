@@ -163,10 +163,10 @@ export default function DOM(project){
             const date = li.querySelector('.date');
             const newDate = parseDate(date.textContent.trim());
             if(newDate !== null){
-                updateFunc(title.textContent.trim(), desc.textContent.trim(), newDate);
+                updateFunc(title.textContent.slice(0, 32), desc.textContent.slice(0, 150), newDate);
             }
             else{
-                updateFunc(title.textContent.trim(), desc.textContent.trim());     
+                updateFunc(title.textContent.slice(0, 32), desc.textContent.slice(0, 150));     
             }
         });
     };

@@ -104,9 +104,9 @@ project1.addToDo(new ToDo('Juggle', 'Playing catch with yourself. This is added 
 
 displayProject();
 
-project2.addToDo(new ToDo('MONKEY', 'OOH OOH. AAH AAH.', new Date(2025, 1, 22), 'moderate'));
-project2.addToDo(new ToDo('THROW', 'BANANAS. ROCKS. MUD.', new Date(2025, 1, 25), 'urgent'));
-project2.addToDo(new ToDo('WAAAAAAAAAAR', ' AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA.', new Date(2025, 1, 24), 'unrushed'));
+project2.addToDo(new ToDo('MONKEY', 'OOH OOH. AAH AAH.', new Date(2025, 3, 12), 'moderate'));
+project2.addToDo(new ToDo('THROW', 'BANANAS. ROCKS. MUD.', new Date(2025, 4, 28), 'urgent'));
+project2.addToDo(new ToDo('WAA A A A A A A A AR', ' AAAAAAAA AAAAAAAAAAAAAAAAAAAAAA AAAAAAAAAAA AAAAAAAAA.', new Date(2025, 5, 24), 'unrushed'));
 
 
 setProjectButton(project1Button, ()=> switchProject(project1));

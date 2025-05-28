@@ -145,10 +145,12 @@ ul{
     margin-left: 30px;
 }
 
+/*Tasks*/
 .todo {
     border: 3px solid;
     border-radius: 15px;
-    width: 65%;
+    width: 100%;
+    max-width: 890px;
     height: 12.5vh;
     display: flex;
     cursor: default;
@@ -167,6 +169,8 @@ ul{
     display: flex;
     flex-direction: column;
     border-right: 3px solid black;
+    max-width: 1000px;
+    overflow: hidden;
 }
 
 .upper-container {
@@ -196,6 +200,9 @@ ul{
 
 .title {
     padding-left: 2vh;
+    word-break: break-word;
+    overflow: hidden;
+    max-height: 56.67px;
 }
 
 .right-container {
@@ -216,6 +223,7 @@ ul{
 .right-container:hover .remove-button {
     visibility: visible;
     opacity: 1;
+    min-width: fit-content;
 }
 
 .date {
@@ -233,6 +241,8 @@ ul{
     font-family: 'Poppins ExtraLight';
     flex-grow: 2;
     padding-left: 2vh;
+    word-break: break-word;
+    overflow: hidden;
 }
 
 
