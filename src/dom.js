@@ -10,6 +10,7 @@ export default function DOM(project){
         for(const toDo of project.getList()){
             let li = document.createElement('li');
             let date = document.createElement('div');
+            let dayBlocker = document.createElement('div');
             let title = document.createElement('h1');
             let desc = document.createElement('p');
             let leftContainer = document.createElement('div');
@@ -22,6 +23,7 @@ export default function DOM(project){
 
             li.classList.add('todo');
             date.classList.add('date');
+            dayBlocker.classList.add('day-blocker');
             title.classList.add('title');
             desc.classList.add('desc');
             leftContainer.classList.add('left-container');
@@ -35,11 +37,11 @@ export default function DOM(project){
             title.innerHTML = toDo.getTitle();
             desc.innerHTML = toDo.getDescription();
             removeButton.innerHTML = 'X';
-            removeButton.contentEditable = false;
+            
             
             upperContainer.append(checkboxWrapper, title);
             leftContainer.append(upperContainer, desc);
-            rightContainer.append(date, removeButton);
+            rightContainer.append(date, dayBlocker, removeButton);
             
             li.append(leftContainer, rightContainer);
 

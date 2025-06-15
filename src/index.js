@@ -3,7 +3,7 @@ import Project from './project.js';
 import DOM from './dom.js';
 import {setProjectButton, setOrderButton, updateOrderButtonText,
      setAddTaskButton, setFormOverlay, setFormSubmit,
-     createProjectButton, setAddProjectButton
+     createProjectButton, setAddProjectButton, preventEditing
     } from './ui.js';
 import './main.css';
 
@@ -28,6 +28,7 @@ function displayProject(){
     setFormSubmit(newToDoForm, formOverlay, ()=> DOM(currentProject).resetLists());
     setFormSubmit(newProjForm, formOverlay);
     displayOrderButton();
+    preventEditing();
 }
 
 function displayOrderButton(){

@@ -63,3 +63,21 @@ export function setFormSubmit(form, formOverlay, doThis){
         else {doThis();}
     });
 };
+
+export function preventEditing(){
+    const dayBlockers = document.querySelectorAll('.day-blocker');
+    const removeButtons = document.querySelectorAll('.remove-button')
+    window.addEventListener('DOMContentLoaded', ()=>{
+        dayBlockers.forEach(dayBlocker => {
+            dayBlocker.addEventListener('click', e =>{
+                e.stopPropagation();
+                e.preventDefault();
+                console.log('poop');
+            });
+        });
+        removeButtons.forEach(removeButton =>{
+            removeButton.contentEditable = 'false';
+        });      
+    });
+    
+}
