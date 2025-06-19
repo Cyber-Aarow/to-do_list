@@ -99,6 +99,7 @@ newProjForm.style.display = 'none';
 
 let currentProject = project1;
 
+
 project1.addToDo(new ToDo('Dinner', 'Eat spaghetti.', new Date(2025, 1, 22), 'moderate'));
 project1.addToDo(new ToDo('Bible Study', 'Go over James.', new Date(2025, 1, 25), 'urgent'));
 project1.addToDo(new ToDo('Juggle', 'Playing catch with yourself. This is added sentence space to test the wrapping function.', new Date(2025, 1, 24), 'unrushed'));
@@ -112,6 +113,7 @@ project2.addToDo(new ToDo('WAA A A A A A A A AR', ' AAAAAAAA AAAAAAAAAAAAAAAAAAA
 
 setProjectButton(project1Button, ()=> switchProject(project1));
 setProjectButton(project2Button, ()=> switchProject(project2));
+project1Button.style.backgroundColor = 'rgb(125, 63, 160)';
 
 window.DOM = DOM;
 window.project1 = project1;
