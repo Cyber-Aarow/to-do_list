@@ -9,11 +9,11 @@
     <div class="form-overlay"></div>
     <form action="" id="add-task-form">
         <div class="title-desc-holder">
-            <input type="text" id="inputTitle" placeholder="Title">
-            <textarea id="inputDesc" rows="3" placeholder="Description"></textarea>
+            <input type="text" id="inputTitle" placeholder="Title" required>
+            <textarea id="inputDesc" rows="3" placeholder="Description" required></textarea>
         </div>
         <div class="date-priority-holder">
-            <input type="date" id="inputDate">
+            <input type="date" id="inputDate" required>
             <select id="inputPriority" required>
                 <option value=""disabled selected hidden>Priority</option>
                 <option value="unrushed">Unrushed</option>
@@ -27,7 +27,7 @@
     </form>
     <form action="" id="add-project-form">
         <div class="title-desc-holder">
-            <input type="text" id="inputProject" placeholder="Title">
+            <input type="text" id="inputProject" placeholder="Title" required>
         </div>
         <div class="submit-holder">
             <button id="project-submit-button">Add Project</button>
