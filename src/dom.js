@@ -144,14 +144,16 @@ export default function DOM(project){
     };
 
     const parseDate = (text) =>{
-        const parts = text.trim().split(' ');
-        if(parts.length !== 3) return null;
-        const monthStr = parts[1];
-        const dayStr = parts[2];
+        const parts = text.slice(3).split(' ');
 
+        if(parts.length !== 2) return null;
+
+        const monthStr = parts[0];
+        const dayStr = parts[1];
         const monthIndex = months.indexOf(monthStr);
-        if(monthIndex === -1) return null;
 
+        if(monthIndex === -1) return null;
+        
         const day = parseInt(dayStr, 10);
         const now = new Date();
         const year = now.getFullYear();
