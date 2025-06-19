@@ -113,7 +113,7 @@ project2.addToDo(new ToDo('WAA A A A A A A A AR', ' AAAAAAAA AAAAAAAAAAAAAAAAAAA
 
 setProjectButton(project1Button, ()=> switchProject(project1));
 setProjectButton(project2Button, ()=> switchProject(project2));
-project1Button.style.backgroundColor = 'rgb(125, 63, 160)';
+project1Button.classList.add('current-project');
 
 window.DOM = DOM;
 window.project1 = project1;
