@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+<script defer src="main.js"></script></head>
+<body>
+    <div class="form-overlay"></div>
+    <form action="" id="add-task-form">
+        <div class="title-desc-holder">
+            <input type="text" id="inputTitle" placeholder="Title">
+            <textarea id="inputDesc" rows="3" placeholder="Description"></textarea>
+        </div>
+        <div class="date-priority-holder">
+            <input type="date" id="inputDate">
+            <select id="inputPriority" required>
+                <option value=""disabled selected hidden>Priority</option>
+                <option value="unrushed">Unrushed</option>
+                <option value="moderate">Moderate</option>
+                <option value="urgent">Urgent</option>
+            </select>
+        </div>
+        <div class="submit-holder">
+            <button id="form-submit-button">Add Task</button>
+        </div>
+    </form>
+    <form action="" id="add-project-form">
+        <div class="title-desc-holder">
+            <input type="text" id="inputProject" placeholder="Title">
+        </div>
+        <div class="submit-holder">
+            <button id="project-submit-button">Add Project</button>
+        </div>
+    </form>
+    <header>
+        <button class="project1">Project 1</button>
+        <button class="project2">Project 2</button>
+        <button class="add-project">+</button>
+    </header>
+    <div id="holder">
+        <div id="left-holder">
+                <button class="order-button">Order: Date</button>
+                <button class="add-task-button">Add Task</button>
+        </div>
+        <div id="right-holder">
+            <ul class="to-do-list">
+
+            </ul>
+            <ul class="finished-list">
+
+            </ul>
+        </div>
+    </div>
+</body>
+</html>
